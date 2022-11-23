@@ -13,18 +13,12 @@ const connect = function () {
     // code that does something when the connection is first established
     conn.write(`Name: BFF`);
     console.log("Successfully connected to game server");
-    setTimeout(() => {
-      conn.write("Move: up");
-    },1000);
-    setTimeout(() => {
-      conn.write("Move: left");
-    },1050);
-    setTimeout(() => {
-      conn.write("Move: up");
-    },1100);
-    setInterval(() => {
-      conn.write("Move: right");
-    }, 50);
+    // setTimeout(() => {
+    //   conn.write("Move: up");
+    // },1000);
+    // setInterval(() => {
+    //   conn.write("Move: right");
+    // }, 50);
   });
 
   conn.on("data", (message) => {
@@ -37,4 +31,4 @@ const connect = function () {
 
 
 
-module.exports = connect;
+module.exports = {connect};
