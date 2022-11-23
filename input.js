@@ -16,6 +16,12 @@ const handleUserInput = function (key) {
     case "d":
       string = "Move: right";
       break;
+    case "r":
+      string = "Say: rip";
+      break;
+    case "p":
+      string = "Say: gg go next";
+      break;
   }
   connection.write(string);
 };
@@ -29,7 +35,7 @@ const setupInput = function (conn) {
   stdin.resume();
 
   stdin.on("data", handleUserInput);
-  return stdin;
+//  return stdin;
 };
 
 
