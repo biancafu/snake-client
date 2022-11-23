@@ -2,10 +2,27 @@ const handleUserInput = function (key) {
   if (key === '\u0003') {
     process.exit();
   }
-  process.stdout.write(key);
+  let string ="";
+  switch(key) {
+    case "w":
+      string = "Move: up";
+      break;
+    case "s":
+      string = "Move: down";
+      break;
+    case "a":
+      string = "Move: left";
+      break;
+    case "d":
+      string = "Move: right";
+      break;
+  }
+  connection.write(string);
 };
 
-const setupInput = function () {
+let connection;
+const setupInput = function (conn) {
+  connection = conn;
   const stdin = process.stdin;
   stdin.setRawMode(true);
   stdin.setEncoding("utf8");
@@ -14,5 +31,6 @@ const setupInput = function () {
   stdin.on("data", handleUserInput);
   return stdin;
 };
+
 
 module.exports = {handleUserInput, setupInput};
